@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know Your Rights Zine — DEI Incentive Brief</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f5f0e8;
+    --red: #d63228;
+    --yellow: #f5c842;
+    --gray: #2a2a2a;
+    --mid: #5a5a5a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--white);
+    color: var(--black);
+    font-family: 'IBM Plex Sans', sans-serif;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* Header */
+  .header {
+    border-top: 6px solid var(--black);
+    border-bottom: 3px solid var(--black);
+    padding: 24px 0 20px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .header-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 10px;
+  }
+
+  .header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+    color: var(--black);
+  }
+
+  .header h1 span {
+    color: var(--red);
+  }
+
+  .header-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    margin-top: 14px;
+    color: var(--gray);
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .header-sub span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .header-sub span::before {
+    content: '▸';
+    color: var(--red);
+  }
+
+  /* Section label */
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+
+  /* Overview block */
+  .overview {
+    background: var(--black);
+    color: var(--white);
+    padding: 28px 32px;
+    margin-bottom: 36px;
+  }
+
+  .overview p {
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  .overview p strong {
+    color: var(--yellow);
+  }
+
+  /* The task */
+  .task-block {
+    margin-bottom: 36px;
+  }
+
+  .task-block h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 8px;
+  }
+
+  .task-block p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray);
+    margin-bottom: 12px;
+  }
+
+  /* Panels grid */
+  .panels-intro {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--gray);
+    margin-bottom: 20px;
+  }
+
+  .panels-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-bottom: 36px;
+    border: 2px solid var(--black);
+  }
+
+  .panel-item {
+    padding: 16px 18px;
+    border: 1px solid #d0ccc4;
+    position: relative;
+  }
+
+  .panel-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: #e0dbd3;
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    line-height: 1;
+  }
+
+  .panel-item h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+
+  .panel-item p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--mid);
+    max-width: 240px;
+  }
+
+  .panel-item.highlight {
+    background: var(--yellow);
+    border-color: var(--black);
+  }
+
+  .panel-item.highlight .panel-number {
+    color: rgba(0,0,0,0.12);
+  }
+
+  .panel-item.highlight p {
+    color: var(--gray);
+  }
+
+  /* Format block */
+  .format-block {
+    margin-bottom: 36px;
+  }
+
+  .format-block h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 8px;
+  }
+
+  .format-specs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .spec-card {
+    border: 2px solid var(--black);
+    padding: 16px;
+  }
+
+  .spec-card .spec-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 6px;
+  }
+
+  .spec-card .spec-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1.4;
+  }
+
+  .format-note {
+    background: #ede9e0;
+    border-left: 4px solid var(--red);
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--gray);
+  }
+
+  /* Timeline */
+  .timeline-block {
+    margin-bottom: 36px;
+  }
+
+  .timeline-block h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 8px;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-row {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    border: 1px solid #d0ccc4;
+    border-bottom: none;
+  }
+
+  .timeline-row:last-child {
+    border-bottom: 1px solid #d0ccc4;
+  }
+
+  .timeline-date {
+    background: var(--black);
+    color: var(--yellow);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  .timeline-content {
+    padding: 14px 18px;
+  }
+
+  .timeline-content strong {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .timeline-content span {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.5;
+  }
+
+  .timeline-row.active .timeline-date {
+    background: var(--red);
+    color: var(--white);
+  }
+
+  /* Rating block */
+  .rating-block {
+    margin-bottom: 36px;
+  }
+
+  .rating-block h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 8px;
+  }
+
+  .competency-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--black);
+    color: var(--white);
+    padding: 10px 18px;
+    margin-bottom: 12px;
+    margin-right: 10px;
+  }
+
+  .competency-pill .pill-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--yellow);
+    font-weight: 600;
+  }
+
+  .competency-pill .pill-name {
+    font-size: 13px;
+  }
+
+  .rating-note {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--gray);
+    margin-top: 12px;
+  }
+
+  /* Resources */
+  .resources-block {
+    margin-bottom: 36px;
+  }
+
+  .resources-block h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 0.04em;
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--black);
+    padding-bottom: 8px;
+  }
+
+  .resource-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .resource-list li {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 16px;
+    font-size: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid #d0ccc4;
+    align-items: start;
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--mid);
+    padding: 3px 6px;
+    display: inline-block;
+  }
+
+  .resource-tag.video { background: var(--red); }
+  .resource-tag.legal { background: #2a5c8a; }
+
+  .resource-list a {
+    color: var(--black);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .resource-desc {
+    color: var(--mid);
+    font-size: 12px;
+    margin-top: 2px;
+  }
+
+  /* Footer */
+  .footer {
+    border-top: 3px solid var(--black);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  .footer-badge {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--red);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 600px) {
+    .header h1 { font-size: 48px; }
+    .panels-grid { grid-template-columns: 1fr; }
+    .format-specs { grid-template-columns: 1fr; }
+    .timeline-row { grid-template-columns: 90px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-meta">LiftOff PD — DEI Incentive Brief — May 29 – June 12, 2026</div>
+    <h1>Know Your<br><span>Rights</span> Zine</h1>
+    <div class="header-sub">
+      <span>Introduced: May 29</span>
+      <span>Work time: June 5</span>
+      <span>Gallery walk: June 12</span>
+      <span>Competency: CCC.2.3</span>
+    </div>
+  </div>
+
+  <div class="overview">
+    <div class="section-label" style="color: var(--yellow);">The Big Idea</div>
+    <p>You're making a <strong>zine</strong> — a small, handmade guide that someone entering the workforce could actually pick up and use. Your zine covers one workplace situation involving discrimination, bias, or inequity, and what to do about it. This isn't a report. It's a resource. Make something you'd actually want to exist.</p>
+  </div>
+
+  <div class="task-block">
+    <div class="section-label">Your Task</div>
+    <h2>What Goes In It</h2>
+    <p>A standard one-sheet zine folds into 8 panels. You've got 8 panels to work with — use them however makes sense. Words, drawings, diagrams, whatever communicates best.</p>
+    <p>Your scenario can be something you've experienced, witnessed, or can imagine happening to someone like you. Pick one situation and go deep.</p>
+  </div>
+
+  <div class="section-label">The 8 Panels</div>
+  <p class="panels-intro">Every zine needs to cover these four things — how you spread them across 8 panels is up to you.</p>
+
+  <div class="panels-grid">
+    <div class="panel-item highlight">
+      <div class="panel-number">01</div>
+      <h3>The Situation</h3>
+      <p>What happened or could happen — and why it matters. Be specific. Name the dynamic.</p>
+    </div>
+    <div class="panel-item">
+      <div class="panel-number">02</div>
+      <h3>The Law</h3>
+      <p>What legal protections apply — federal, state, or local. Which law covers this, and who does it protect?</p>
+    </div>
+    <div class="panel-item">
+      <div class="panel-number">03</div>
+      <h3>The Steps</h3>
+      <p>What to do: how to document, who to tell, when to escalate. A practical sequence someone could follow.</p>
+    </div>
+    <div class="panel-item highlight">
+      <div class="panel-number">04</div>
+      <h3>Standing Up</h3>
+      <p>What allyship looks like here — for yourself or for a coworker. What does actually doing something look like?</p>
+    </div>
+  </div>
+
+  <div class="format-block">
+    <div class="section-label">Format</div>
+    <h2>Making It</h2>
+    <div class="format-specs">
+      <div class="spec-card">
+        <div class="spec-label">Medium</div>
+        <div class="spec-value">One sheet of paper, folded into 8 panels</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Tools</div>
+        <div class="spec-value">Markers, colored pencils, pens — provided June 5</div>
+      </div>
+      <div class="spec-card">
+        <div class="spec-label">Style</div>
+        <div class="spec-value">Your call. Words, drawings, diagrams, collage-style</div>
+      </div>
+    </div>
+    <div class="format-note">
+      There is no single right way to make a zine. The goal is something readable, specific, and yours. It should take someone 2–4 minutes to read through. If it could help a person who looks like you navigate something real — you're on the right track.
+    </div>
+  </div>
+
+  <div class="timeline-block">
+    <div class="section-label">Schedule</div>
+    <h2>Key Dates</h2>
+    <div class="timeline">
+      <div class="timeline-row active">
+        <div class="timeline-date">May 29</div>
+        <div class="timeline-content">
+          <strong>Incentive Introduced + Scenario Selection</strong>
+          <span>Leave today with your scenario written down and a rough sense of what legal protection applies to it.</span>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-date">June 5</div>
+        <div class="timeline-content">
+          <strong>Zine Work Time</strong>
+          <span>Second half of session is dedicated making time. Materials provided. Bring your scenario and any notes.</span>
+        </div>
+      </div>
+      <div class="timeline-row">
+        <div class="timeline-date">June 12</div>
+        <div class="timeline-content">
+          <strong>Gallery Walk — Zines Due</strong>
+          <span>Zines go on display. Everyone walks, reads, and talks. Come ready to discuss what you made and what you learned. This is how you get rated on CCC.2.3 and CCC.2.4.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rating-block">
+    <div class="section-label">How You Get Rated</div>
+    <h2>Competencies</h2>
+    <div>
+      <div class="competency-pill">
+        <span class="pill-code">CCC.2.3</span>
+        <span class="pill-name">Demonstrate Allyship and Advocacy</span>
+      </div>
+      <div class="competency-pill">
+        <span class="pill-code">CCC.2.4</span>
+        <span class="pill-name">Engage in Cross-Cultural Communication</span>
+      </div>
+    </div>
+    <p class="rating-note">Staff will rate CCC.2.3 on your zine. CCC.2.4 gets rated on the gallery walk conversation on June 12. Strong work shows you understand the systems at play, know the legal landscape, and can connect experience to action. The discussion on June 12 is where you show you can communicate across difference and reflect on your own positioning.</p>
+  </div>
+
+  <div class="resources-block">
+    <div class="section-label">Want to go deeper?</div>
+    <h2>Resources</h2>
+    <ul class="resource-list">
+      <li>
+        <span class="resource-tag legal">Legal</span>
+        <div>
+          <div><a href="https://www.eeoc.gov/filing-charge-discrimination" target="_blank">EEOC — How to File a Charge of Discrimination</a></div>
+          <div class="resource-desc">Free to start, no lawyer needed. Covers Title VII, Equal Pay Act, and more.</div>
+        </div>
+      </li>
+      <li>
+        <span class="resource-tag legal">Legal</span>
+        <div>
+          <div><a href="https://www.phrc.pa.gov/" target="_blank">Pennsylvania Human Relations Commission</a></div>
+          <div class="resource-desc">State-level protections covering employers with 4+ employees.</div>
+        </div>
+      </li>
+      <li>
+        <span class="resource-tag legal">Legal</span>
+        <div>
+          <div><a href="https://www.phila.gov/departments/philadelphia-commission-on-human-relations/" target="_blank">Philadelphia Commission on Human Relations</a></div>
+          <div class="resource-desc">City-level protections — one of the strongest local ordinances in the country. Covers employers with 1+ employee.</div>
+        </div>
+      </li>
+      <li>
+        <span class="resource-tag video">Video</span>
+        <div>
+          <div><a href="https://www.youtube.com/watch?v=jxKBIMN9dgU" target="_blank">The History of Zines — Kate Bingaman-Burt (YouTube)</a></div>
+          <div class="resource-desc">History and context of zines as a medium for self-expression and community publishing.</div>
+        </div>
+      </li>
+      <li>
+        <span class="resource-tag video">Video</span>
+        <div>
+          <div><a href="https://www.youtube.com/watch?v=updWqxLyC9g" target="_blank">Zines! A Brief History (YouTube)</a></div>
+          <div class="resource-desc">Educator-focused overview from sci-fi fanzines through riot grrrl to today.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    <div class="footer-left">
+      LiftOff Professional Development<br>
+      Building 21 / Launchpad Philly — Spring 2026
+    </div>
+    <div class="footer-badge">LiftOff &#x2197;</div>
+  </div>
+
+</body>
+</html>
